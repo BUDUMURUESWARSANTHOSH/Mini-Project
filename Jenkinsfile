@@ -17,7 +17,7 @@ stage('Run Container') {
 steps {
 script {
 // Stop old container if running
-sh 'docker ps -q --filter "name=react-express-app" | grep -q . && docker stop
+sh 'docker ps -q --filter "react-express-app" | grep -q . && docker stop
 react-express-app && docker rm react-express-app || true'
 // Start new container
 sh 'docker run -d -p 5000:5000 --name react-express-app react-express-app'
